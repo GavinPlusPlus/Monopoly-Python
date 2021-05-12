@@ -4,8 +4,7 @@
 # Python : Period 2
 ################################################################################
 
-from NetAPI import Server
-
+from NetAPI import Server, Client
 
 
 testType = input("Would you like to be the server or client? (S - Server, C - Client)")
@@ -18,4 +17,5 @@ if testType == "S":
 elif testType == "C":
 
     client = Client(32600)
-    client.startUDPSearch()
+    serverAddress = client.startUDPSearch()
+    client.connectTCPSock(ip)
