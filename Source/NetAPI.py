@@ -1,6 +1,7 @@
 ################################################################################
 # NetAPI.py
 # File for scanning and connecting to battleship games
+# Python : Period 2
 ################################################################################
 
 import socket
@@ -11,58 +12,123 @@ class Server:
     
     #Variables
     netSock = None
-    port = 32600
     ip = None
-    connected = False
+    hostname = None
+    port = 32600
+    udpConnected = False
 
     #Functions
     def __init__(self, port):
 
         self.port = port
-        self.ip = socket.gethostname()
+        self.hostname = socket.gethostname()
+        self.ip = socket.gethostbyname(self.hostname)
+
 
     def startTCPServer(self):
 
         #Init Socket
         try:
             self.netSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.netSock.bind(self.ip, self.port)
-            print(f"[INFO]: Success! Created socket on {self.ip}:{self.port}")
+            self.netSock.bind((self.ip, self.port))
+            print(f"[INFO]: Success! Created TCP socket on {self.ip}:{self.port}")
         except socket.error:
-            print(f"[ERROR]: Failed to bind socket to {self.ip}:{self.port}")
+            print(f"[ERROR]: Failed to TCP bind socket to {self.ip}:{self.port}")
             sys.exit(-1)
             
 
-    def startUDPSearch(self):
+    def startUDPServer(self):
 
         #Init temp socket
         tempSock = None
         try:
             tempSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
             tempSock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-            tempSock.settimeout(1)
-            print("[INFO]: Created broadcast socket")
+            tempSock.settimeout(.1)
+            print(f"[INFO]: Success! Created UDP socket on {self.ip}:{self.port}")
         except socket.error:
              print(f"[ERROR]: Failed to create broadcast socket")
              sys.exit(-2)
 
-        print(f"[INFO]: Broadcasting and waiting for client", end="")
+        print(f"[INFO]: Broadcasting and waiting for client")
         
         #Broadcast loop
-        broadcastPacket = f"NetAPI|HOST_SEARCH|{self.ip}:{self.port}"
-        while not self.connected:
+        broadcastPacket = f"NetAPI|HOST_SEARCH|{self.ip}:{self.port}|{self.hostname}"
+
+        timeoutCounter = 120
+        print()
+        while not self.connected and timeoutCounter >= 0:
             #Send Broadcast
             tempSock.sendto(bytes(broadcastPacket, "utf-8"), ("<broadcast>", self.port))
-            print(".", end="")
             time.sleep(.5)
 
             #Look for response
-            data, address = tempSock.recvfrom(1024)
-            data = data.encode("utf-8")
+            try:
+                data, address = tempSock.recvfrom(1024)
+                data = data.encode("utf-8")
 
-            if data.startswith("NetAPI|HOST_REQ|"):
-                print(f"[INFO]: Found client on {address}")
-                self.connected = True
+                if data.startswith("NetAPI|HOST_REQ|"):
+                    print(f"[INFO]: Found client on {address}")
+                    self.udpConnected = True
+            except socket.timeout:
+                sys.stdout.write("\033[F")
+                print(f"[INFO]: Broadcast Time Remaining: {timeoutCounter / 2}")
+                sys.stdout.flush()
+                timeoutCounter -= 1
+
+class Client:
+
+    #Variables
+    netSock = None
+    localIP = None
+    localHostname = None
+
+    remoteIP = None
+    remoteHostname = None
+
+    port = 32600
+    udpConnected = False
+
+    #Functions
+    def __init__(self, port):
+
+        self.port = port
+        self.localHostname = socket.gethostname()
+        self.localIP = socket.gethostbyname(self.localHostname)
 
 
+    def connectTCPSock(self, ip):
 
+        #Init Socket Connection
+        print()
+
+    def startUDPSearch(self):
+
+        #Start UDP Search
+        tempSock = None
+        try:
+            tempSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+            tempSock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+            print(f"[INFO]: Success! Created UDP socket on {self.localIP}:{self.port}")
+            tempSock.bind(("", self.port))
+        except socket.error:
+            print(f"[ERROR]: Failed to create broadcast socket")
+            sys.exit(-2)
+
+        timeoutCounter = 120
+        print()
+        while not self.connected and timeoutCounter >= 0:
+            #Look for response
+            try:
+                data, address = tempSock.recvfrom(1024)
+                data = data.encode("utf-8")
+
+                if data.startswith("NetAPI|HOST_SEARCH|"):
+                    print(f"[INFO]: Found server on {address}")
+                    self.udpConnected = True
+
+            except socket.timeout:
+                sys.stdout.write("\033[F")
+                print(f"[INFO]: Search Time Remaining: {timeoutCounter / 2}")
+                sys.stdout.flush()
+                timeoutCounter -= 1
