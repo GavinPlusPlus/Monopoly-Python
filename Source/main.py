@@ -6,7 +6,16 @@
 
 from NetAPI import Server
 
-server = Server(32600)
 
-server.startTCPServer()
-server.startUDPServer()
+
+testType = input("Would you like to be the server or client? (S - Server, C - Client)")
+
+if testType == "S":
+
+    server = Server(32600)
+    server.startTCPServer()
+    server.startUDPServer()
+elif testType == "C":
+
+    client = Client(32600)
+    client.startUDPSearch()

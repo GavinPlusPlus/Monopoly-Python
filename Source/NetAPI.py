@@ -57,7 +57,7 @@ class Server:
 
         timeoutCounter = 120
         print()
-        while not self.connected and timeoutCounter >= 0:
+        while not self.udpConnected and timeoutCounter >= 0:
             #Send Broadcast
             tempSock.sendto(bytes(broadcastPacket, "utf-8"), ("<broadcast>", self.port))
             time.sleep(.5)
