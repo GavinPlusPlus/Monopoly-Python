@@ -18,4 +18,4 @@ elif testType == "C":
 
     client = Client(32600)
     serverAddress = client.startUDPSearch()
-    client.connectTCPSock(ip)
+    client.connectTCPSock(serverAddress)

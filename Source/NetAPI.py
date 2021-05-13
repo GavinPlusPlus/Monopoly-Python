@@ -1,6 +1,6 @@
 ################################################################################
 # NetAPI.py
-# File for scanning and connecting to battleship games
+# File for scanning and connecting to games
 # Python : Period 2
 ################################################################################
 
@@ -44,7 +44,8 @@ class Server:
         try:
             tempSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
             tempSock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-            tempSock.settimeout(.1)
+            tempSock.settimeout(.5)
+            tempSock.bind(("", self.port))
             print(f"[INFO]: Success! Created UDP socket on {self.ip}:{self.port}")
         except socket.error:
              print(f"[ERROR]: Failed to create broadcast socket")
@@ -60,7 +61,6 @@ class Server:
         while not self.udpConnected and timeoutCounter >= 0:
             #Send Broadcast
             tempSock.sendto(bytes(broadcastPacket, "utf-8"), ("<broadcast>", self.port))
-            time.sleep(.5)
 
             #Look for response
             try:
@@ -102,7 +102,7 @@ class Client:
     def connectTCPSock(self, ip):
 
         #Init Socket Connection
-        print()
+        print(ip)
 
     def startUDPSearch(self):
 

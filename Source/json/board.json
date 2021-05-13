@@ -1,0 +1,116 @@
+{
+    "board": {
+        "corners": {
+            "topLeft": {
+                "tile": "+======+;|| FREE |;|      |;| PARK |;+======+;"
+            },
+            "topRight": {
+                "tile": "+======+;||  GO  |;|  TO  |;| JAIL |;+======+;"
+            }, 
+            "bottomLeft": {
+                "tile": "+======+;||      |;| JAIL |;|      |;+======+;"
+            }, 
+            "bottomRight": {
+                "tile": "+======+;||  GO  |;|      |;| $200 |;+======+;"
+            }
+        }, 
+        "bottom": {
+            "1": {
+                "name": "Mediterranean Avenue",
+                "tile": "========;| Med. |;|      |;| Ave. |;========;",
+                "color": "\u001b[35m",
+                "price": 60,
+                "rent": {
+                    "0": 2,
+                    "1": 10,
+                    "2": 30,
+                    "3": 90,
+                    "4": 160,
+                    "5": 250
+                },
+                "homePrice": 50
+            }, 
+            "2": {
+                "name": "Community Chest",
+                "tile": "========;| Com. |;|      |;| Cst. |;========;",
+                "color": ""
+            }, 
+            "3": {
+                "name": "Baltic Avenue",
+                "tile": "========;| Bal. |;|      |;| Ave. |;========;",
+                "color": "\u001b[35m",
+                "price": 60,
+                "rent": {
+                    "0": 4,
+                    "1": 20,
+                    "2": 60,
+                    "3": 180,
+                    "4": 320,
+                    "5": 450
+                },
+                "homePrice": 50
+            },         
+            "4": {
+                "name": "Income Tax",
+                "tile": "========;| Tax. |;|      |;| $200 |;========;",
+                "color": "",
+                "price": 200
+            }, 
+            "5": {
+                "name": "Reading Railroad",
+                "tile": "========;| Read |;|      |;| Rlrd |;========;",
+                "color": ""
+            }, 
+            "6": {
+                "name": "Centrial Avenue",
+                "tile": "========;| Arc. |;|      |;| Ave. |;========;",
+                "color": "\u001b[36;1m",
+                "price": 100,
+                "rent": {
+                    "0": 6,
+                    "1": 30,
+                    "2": 90,
+                    "3": 270,
+                    "4": 400,
+                    "5": 550
+                },
+                "homePrice": 50
+            }, 
+            "7": {
+                "name": "Chance",
+                "tile": "========;|      |;|Chance|;|      |;========;",
+                "color": ""
+            }, 
+            "8": {
+                "name": "Vermont Avenue",
+                "tile": "========;| Ver. |;|      |;| Ave. |;========;",
+                "color": "\u001b[36;1m",
+                "price": 100,
+                "rent": {
+                    "0": 6,
+                    "1": 30,
+                    "2": 90,
+                    "3": 270,
+                    "4": 400,
+                    "5": 550
+                },
+                "homePrice": 50
+            }, 
+            "9": {
+                "name": "Connecticut Avenue",
+                "tile": "========;| Con. |;|      |;| Ave. |;========;",
+                "color": "\u001b[36;1m",
+                "price": 120,
+                "rent": {
+                    "0": 8,
+                    "1": 40,
+                    "2": 100,
+                    "3": 300,
+                    "4": 450,
+                    "5": 600
+                },
+                "homePrice": 50
+            }
+        }
+    }
+}
