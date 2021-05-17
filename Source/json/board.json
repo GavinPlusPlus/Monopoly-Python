@@ -15,6 +15,11 @@
             }
         }, 
         "bottom": {
+            "0": {
+                "name": "Pass go, Collect $200",
+                "tile": "+======+;|  GO  |;|      |;| $200 |;+======+;",
+                "color": "\u001b[37;1m"
+            },
             "1": {
                 "name": "Mediterranean Avenue",
                 "tile": "========;| Med. |;|      |;| Ave. |;========;",
@@ -33,7 +38,7 @@
             "2": {
                 "name": "Community Chest",
                 "tile": "========;| Com. |;|      |;| Cst. |;========;",
-                "color": ""
+                "color": "\u001b[0m"
             }, 
             "3": {
                 "name": "Baltic Avenue",
@@ -53,13 +58,13 @@
             "4": {
                 "name": "Income Tax",
                 "tile": "========;| Tax. |;|      |;| $200 |;========;",
-                "color": "",
+                "color": "\u001b[0m",
                 "price": 200
             }, 
             "5": {
                 "name": "Reading Railroad",
                 "tile": "========;| Read |;|      |;| Rlrd |;========;",
-                "color": ""
+                "color": "\u001b[0m\u001b[1m"
             }, 
             "6": {
                 "name": "Centrial Avenue",
@@ -79,7 +84,7 @@
             "7": {
                 "name": "Chance",
                 "tile": "========;|      |;|Chance|;|      |;========;",
-                "color": ""
+                "color": "\u001b[0m"
             }, 
             "8": {
                 "name": "Vermont Avenue",
@@ -110,6 +115,11 @@
                     "5": 600
                 },
                 "homePrice": 50
+            },
+            "10": {
+                "name": "Jail",
+                "tile": "+======+;|      |;| JAIL |;|      |;+======+;",
+                "color": "\u001b[37;1m"
             }
         }
     }

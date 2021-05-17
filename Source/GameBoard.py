@@ -27,8 +27,21 @@ class GameBoard:
             print("[Error]: Failed to load board.json! Exiting...")
             sys.exit(-1)
 
-    def printJson(self):
+    def printRawJson(self):
         print(self.boardJSON)
 
+    def printCurrentBoard(self):
+        #Print top
+        stringToPrint = ""
+        for i in range (0, 5):
+            stringToPrint = ""
+            for j in range (0, 11):
+                stringToPrint += str(self.boardJSON["board"]["bottom"][str(10 - j)]["color"])
+                tileStr = self.boardJSON["board"]["bottom"][str(10 - j)]["tile"]
+                stringToPrint += tileStr.split(";")[i]
+            print(stringToPrint)
+
 game = GameBoard()
-game.printJson()
+game.printRawJson()
+print()
+game.printCurrentBoard()
