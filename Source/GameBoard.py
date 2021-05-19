@@ -39,6 +39,9 @@ class GameBoard:
                 stringToPrint += str(self.boardJSON["board"]["bottom"][str(10 - j)]["color"])
                 tileStr = self.boardJSON["board"]["bottom"][str(10 - j)]["tile"]
                 stringToPrint += tileStr.split(";")[i]
+
+                
+
             print(stringToPrint)
 
 game = GameBoard()
