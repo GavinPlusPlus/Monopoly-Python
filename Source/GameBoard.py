@@ -9,14 +9,19 @@ import json
 import sys
 import os
 import zlib
+from Property import Property
 
 class GameBoard:
 
     #Variables
     boardJSON = None
+    propertyList = []
 
     #Functions
     def __init__(self):
+
+        #Define Variables
+        self.propertyList = []
 
         relPath = "\\json\\board.json"
         absPath = os.path.abspath("") + relPath
@@ -28,6 +33,16 @@ class GameBoard:
             print("[Error]: Failed to load board.json! Exiting...")
             print(absPath)
             sys.exit(-1)
+
+        #Load all properties into propertyList
+        for i in range (0, 11):
+            self.propertyList.append(Property(self.boardJSON["board"]["bottom"][str(i)]))
+        for i in range (0, 9):
+            self.propertyList.append(Property(self.boardJSON["board"]["left"][str(i)]))
+        for i in range (0, 11):
+            self.propertyList.append(Property(self.boardJSON["board"]["top"][str(i)]))
+        for i in range (0, 9):
+            self.propertyList.append(Property(self.boardJSON["board"]["right"][str(i)]))
 
     def printRawJson(self):
         raw = json.dumps(self.boardJSON)
@@ -83,8 +98,9 @@ class GameBoard:
 
 game = GameBoard()
 print()
-game.printRawJson()
-print()
-game.printCompressedJson()
-print()
-game.printCurrentBoard()
+# game.printRawJson()
+# print()
+# game.printCompressedJson()
+# print()
+# game.printCurrentBoard()
+

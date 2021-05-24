@@ -404,7 +404,8 @@
             "2": {
                 "name": "Community Chest",
                 "tile": "==========;|  Com.  |;|        |;|  Cst.  |;==========;",
-                "color": "\u001b[0m"
+                "color": "\u001b[0m",
+                "type": "rng"
             },
             "3": {
                 "name": "Pennsylvania Avenue",
@@ -426,12 +427,14 @@
                 "name": "ShortLine Railroad",
                 "tile": "==========;|  ShLn  |;|        |;|  Rlrd  |;==========;",
                 "color": "\u001b[0m\u001b[1m",
-                "type": "ownable"
+                "type": "railroad",
+                "price": 200
             },
             "5": {
                 "name": "Chance",
                 "tile": "==========;|        |;| Chance |;|        |;==========;",
-                "color": "\u001b[0m"
+                "color": "\u001b[0m",
+                "type": "rng"
             }, 
             "6": {
                 "name": "Park Place",
@@ -446,14 +449,15 @@
                     "4": 1300,
                     "5": 1500
                 },
-                "homePrice": 100,
+                "homePrice": 200,
                 "type": "ownable"
             },
             "7": {
                 "name": "Luxury Tax",
                 "tile": "==========;|  Tax.  |;|        |;|  $100  |;==========;",
                 "color": "\u001b[0m",
-                "price": 100
+                "price": 100,
+                "type": "tax"
             },
             "8": {
                 "name": "Boardwalk",
@@ -468,7 +472,7 @@
                     "4": 1700,
                     "5": 2000
                 },
-                "homePrice": 100,
+                "homePrice": 200,
                 "type": "ownable"
             }
         }
