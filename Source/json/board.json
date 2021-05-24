@@ -3,12 +3,13 @@
         "bottom": {
             "0": {
                 "name": "Pass go, Collect $200",
-                "tile": "+======+;|  GO  |;|      |;| $200 |;+======+;",
-                "color": "\u001b[37;1m"
+                "tile": "+========+;|   GO   |;|        |;|  $200  |;+========+;",
+                "color": "\u001b[37;1m",
+                "type" : "special"
             },
             "1": {
                 "name": "Mediterranean Avenue",
-                "tile": "========;| Med. |;|      |;| Ave. |;========;",
+                "tile": "==========;|  Med.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[35m",
                 "price": 60,
                 "rent": {
@@ -19,16 +20,18 @@
                     "4": 160,
                     "5": 250
                 },
-                "homePrice": 50
+                "homePrice": 50,
+                "type": "ownable"
             }, 
             "2": {
                 "name": "Community Chest",
-                "tile": "========;| Com. |;|      |;| Cst. |;========;",
-                "color": "\u001b[0m"
+                "tile": "==========;|  Com.  |;|        |;|  Cst.  |;==========;",
+                "color": "\u001b[0m",
+                "type": "rng"
             }, 
             "3": {
                 "name": "Baltic Avenue",
-                "tile": "========;| Bal. |;|      |;| Ave. |;========;",
+                "tile": "==========;|  Bal.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[35m",
                 "price": 60,
                 "rent": {
@@ -39,22 +42,26 @@
                     "4": 320,
                     "5": 450
                 },
-                "homePrice": 50
+                "homePrice": 50,
+                "type": "ownable"
             },         
             "4": {
                 "name": "Income Tax",
-                "tile": "========;| Tax. |;|      |;| $200 |;========;",
+                "tile": "==========;|  Tax.  |;|        |;|  $200  |;==========;",
                 "color": "\u001b[0m",
+                "type": "tax",
                 "price": 200
             }, 
             "5": {
                 "name": "Reading Railroad",
-                "tile": "========;| Read |;|      |;| Rlrd |;========;",
-                "color": "\u001b[0m\u001b[1m"
+                "tile": "==========;|  Read  |;|        |;|  Rlrd  |;==========;",
+                "color": "\u001b[0m\u001b[1m",
+                "type": "railroad",
+                "price": 200
             }, 
             "6": {
                 "name": "Centrial Avenue",
-                "tile": "========;| Arc. |;|      |;| Ave. |;========;",
+                "tile": "==========;|  Arc.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[36;1m",
                 "price": 100,
                 "rent": {
@@ -65,16 +72,18 @@
                     "4": 400,
                     "5": 550
                 },
-                "homePrice": 50
+                "homePrice": 50,
+                "type": "ownable"
             }, 
             "7": {
                 "name": "Chance",
-                "tile": "========;|      |;|Chance|;|      |;========;",
-                "color": "\u001b[0m"
+                "tile": "==========;|        |;| Chance |;|        |;==========;",
+                "color": "\u001b[0m",
+                "type": "rng"
             }, 
             "8": {
                 "name": "Vermont Avenue",
-                "tile": "========;| Ver. |;|      |;| Ave. |;========;",
+                "tile": "==========;|  Ver.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[36;1m",
                 "price": 100,
                 "rent": {
@@ -85,11 +94,12 @@
                     "4": 400,
                     "5": 550
                 },
-                "homePrice": 50
+                "homePrice": 50,
+                "type": "ownable"
             }, 
             "9": {
                 "name": "Connecticut Avenue",
-                "tile": "========;| Con. |;|      |;| Ave. |;========;",
+                "tile": "==========;|  Con.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[36;1m",
                 "price": 120,
                 "rent": {
@@ -100,19 +110,21 @@
                     "4": 450,
                     "5": 600
                 },
-                "homePrice": 50
+                "homePrice": 50,
+                "type": "ownable"
             },
             "10": {
                 "name": "Jail",
-                "tile": "+======+;|      |;| JAIL |;|      |;+======+;",
-                "color": "\u001b[37;1m"
+                "tile": "+========+;|        |;|  JAIL  |;|        |;+========+;",
+                "color": "\u001b[37;1m",
+                "type": "special"
             }
         },
         "left": {
             "0": {
                 "name": "St. Charles Place",
-                "tile": "========;|  St. |;|      |;| Chr. |;========;",
-                "color": "\u001b[35m",
+                "tile": "==========;|   St.  |;|        |;|  Chr.  |;==========;",
+                "color": "\u001b[35;1m",
                 "price": 140,
                 "rent": {
                     "0": 10,
@@ -122,27 +134,20 @@
                     "4": 625,
                     "5": 750
                 },
-                "homePrice": 100
+                "homePrice": 100,
+                "type": "ownable"
             },
             "1": {
                 "name": "Electric Company",
-                "tile": "========;| Elc. |;|      |;| Cmp. |;========;",
+                "tile": "==========;|  Elc.  |;|        |;|  Cmp.  |;==========;",
                 "color": "\u001b[37;1m",
                 "price": 150,
-                "rent": {
-                    "0": 10,
-                    "1": 50,
-                    "2": 150,
-                    "3": 450,
-                    "4": 625,
-                    "5": 750
-                },
-                "homePrice": 100
+                "type": "utility"
             },
             "2": {
                 "name": "States Avenue",
-                "tile": "========;| Sta. |;|      |;| Ave. |;========;",
-                "color": "\u001b[35m",
+                "tile": "==========;|  Sta.  |;|        |;|  Ave.  |;==========;",
+                "color": "\u001b[35;1m",
                 "price": 140,
                 "rent": {
                     "0": 10,
@@ -152,12 +157,13 @@
                     "4": 625,
                     "5": 750
                 },
-                "homePrice": 100
+                "homePrice": 100,
+                "type": "ownable"
             },
             "3": {
                 "name": "Virginia Avenue",
-                "tile": "========;| Vir. |;|      |;| Ave. |;========;",
-                "color": "\u001b[35m",
+                "tile": "==========;|  Vir.  |;|        |;|  Ave.  |;==========;",
+                "color": "\u001b[35;1m",
                 "price": 160,
                 "rent": {
                     "0": 12,
@@ -167,16 +173,19 @@
                     "4": 700,
                     "5": 900
                 },
-                "homePrice": 100
+                "homePrice": 100,
+                "type": "ownable"
             },
             "4": {
                 "name": "Pennsylvania Railroad",
-                "tile": "========;| Penn |;|      |;| Rlrd |;========;",
-                "color": "\u001b[0m\u001b[1m"
+                "tile": "==========;|  Penn  |;|        |;|  Rlrd  |;==========;",
+                "color": "\u001b[0m\u001b[1m",
+                "type": "railroad",
+                "price": 200
             },
             "5": {
                 "name": "St. James Place",
-                "tile": "========;|  St. |;|      |;| Jam. |;========;",
+                "tile": "==========;|   St.  |;|        |;|  Jam.  |;==========;",
                 "color": "\u001b[31;1m",
                 "price": 180,
                 "rent": {
@@ -187,11 +196,12 @@
                     "4": 750,
                     "5": 950
                 },
-                "homePrice": 100
+                "homePrice": 100,
+                "type": "ownable"
             },
             "6": {
                 "name": "Tennessee Avenue",
-                "tile": "========;| Ten. |;|      |;| Ave. |;========;",
+                "tile": "==========;|  Ten.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[31;1m",
                 "price": 180,
                 "rent": {
@@ -202,16 +212,18 @@
                     "4": 750,
                     "5": 950
                 },
-                "homePrice": 100
+                "homePrice": 100,
+                "type": "ownable"
             },
             "7": {
                 "name": "Community Chest",
-                "tile": "========;| Com. |;|      |;| Cst. |;========;",
-                "color": "\u001b[0m"
+                "tile": "==========;|  Com.  |;|        |;|  Cst.  |;==========;",
+                "color": "\u001b[0m",
+                "type": "rng"
             },
             "8": {
                 "name": "New York Avenue",
-                "tile": "========;|  NY. |;|      |;| Ave. |;========;",
+                "tile": "==========;|   NY.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[31;1m",
                 "price": 200,
                 "rent": {
@@ -222,13 +234,144 @@
                     "4": 800,
                     "5": 1000
                 },
-                "homePrice": 100
+                "homePrice": 100,
+                "type": "ownable"
+            }
+        }, 
+        "top": {
+            "0": {
+                "name": "Free Parking",
+                "tile": "+========+;|  FREE  |;|        |;|  PARK  |;+========+;",
+                "color": "\u001b[37;1m",
+                "type": "special"
+            },
+            "1": {
+                "name": "Kentucky Avenue",
+                "tile": "==========;|  Knt.  |;|        |;|  Ave.  |;==========;",
+                "color": "\u001b[31m",
+                "price": 220,
+                "rent": {
+                    "0": 18,
+                    "1": 90,
+                    "2": 250,
+                    "3": 700,
+                    "4": 875,
+                    "5": 1050
+                },
+                "homePrice": 150,
+                "type": "ownable"
+            }, 
+            "2": {
+                "name": "Chance",
+                "tile": "==========;|        |;| CHANCE |;|        |;==========;",
+                "color": "\u001b[0m",
+                "type": "rng"
+            }, 
+            "3": {
+                "name": "Indiana Avenue",
+                "tile": "==========;|  Ind.  |;|        |;|  Ave.  |;==========;",
+                "color": "\u001b[31m",
+                "price": 220,
+                "rent": {
+                    "0": 18,
+                    "1": 90,
+                    "2": 250,
+                    "3": 700,
+                    "4": 875,
+                    "5": 1050
+                },
+                "homePrice": 150,
+                "type": "ownable"
+            },         
+            "4": {
+                "name": "Illinois Avenue",
+                "tile": "==========;|  Ill.  |;|        |;|  Ave.  |;==========;",
+                "color": "\u001b[31m",
+                "price": 240,
+                "rent": {
+                    "0": 20,
+                    "1": 100,
+                    "2": 300,
+                    "3": 750,
+                    "4": 925,
+                    "5": 1100
+                },
+                "homePrice": 150,
+                "type": "ownable"
+            }, 
+            "5": {
+                "name": "B & O Railroad",
+                "tile": "==========;|  Read  |;|        |;|  Rlrd  |;==========;",
+                "color": "\u001b[0m\u001b[1m",
+                "type": "railroad",
+                "price": 200
+            }, 
+            "6": {
+                "name": "Atlantic Avenue",
+                "tile": "==========;|  Alt.  |;|        |;|  Ave.  |;==========;",
+                "color": "\u001b[33m",
+                "price": 260,
+                "rent": {
+                    "0": 22,
+                    "1": 110,
+                    "2": 330,
+                    "3": 800,
+                    "4": 975,
+                    "5": 1150
+                },
+                "homePrice": 150,
+                "type": "ownable"
+            }, 
+            "7": {
+                "name": "Ventnor Avenue",
+                "tile": "==========;|  Ven.  |;|        |;|  Ave.  |;==========;",
+                "color": "\u001b[33m",
+                "price": 260,
+                "rent": {
+                    "0": 22,
+                    "1": 110,
+                    "2": 330,
+                    "3": 800,
+                    "4": 975,
+                    "5": 1150
+                },
+                "homePrice": 150,
+                "type": "ownable"
+            }, 
+            "8": {
+                "name": "Water Works",
+                "tile": "==========;|  H2O.  |;|        |;|  Wrk.  |;==========;",
+                "color": "\u001b[37;1m",
+                "price": 150,
+                "type": "utility"
+            }, 
+            "9": {
+                "name": "Marven Gardens",
+                "tile": "==========;|  Mar.  |;|        |;|  Grd.  |;==========;",
+                "color": "\u001b[33m",
+                "price": 280,
+                "rent": {
+                    "0": 24,
+                    "1": 120,
+                    "2": 360,
+                    "3": 850,
+                    "4": 1025,
+                    "5": 1200
+                },
+                "homePrice": 150,
+                "type": "ownable"
+            },
+            "10": {
+                "name": "Go To Jail",
+                "tile": "+========+;|   GO   |;|   TO   |;|  JAIL  |;+========+;",
+                "color": "\u001b[37;1m",
+                "type": "special"
             }
         }, 
         "right": {
             "0": {
                 "name": "Pacific Avenue",
-                "tile": "========;| Pac. |;|      |;| Ave. |;========;",
+                "tile": "==========;|  Pac.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[32m",
                 "price": 300,
                 "rent": {
@@ -239,11 +382,12 @@
                     "4": 1100,
                     "5": 1275
                 },
-                "homePrice": 200
+                "homePrice": 200,
+                "type": "ownable"
             },
             "1": {
                 "name": "North Carolina Avenue",
-                "tile": "========;|  NC. |;|      |;| Ave. |;========;",
+                "tile": "==========;|   NC.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[32m",
                 "price": 300,
                 "rent": {
@@ -254,16 +398,17 @@
                     "4": 1100,
                     "5": 1275
                 },
-                "homePrice": 200
+                "homePrice": 200,
+                "type": "ownable"
             },
             "2": {
                 "name": "Community Chest",
-                "tile": "========;| Com. |;|      |;| Cst. |;========;",
+                "tile": "==========;|  Com.  |;|        |;|  Cst.  |;==========;",
                 "color": "\u001b[0m"
             },
             "3": {
                 "name": "Pennsylvania Avenue",
-                "tile": "========;| Pen. |;|      |;| Ave. |;========;",
+                "tile": "==========;|  Pen.  |;|        |;|  Ave.  |;==========;",
                 "color": "\u001b[32m",
                 "price": 320,
                 "rent": {
@@ -274,21 +419,23 @@
                     "4": 1200,
                     "5": 1400
                 },
-                "homePrice": 200
+                "homePrice": 200,
+                "type": "ownable"
             },
             "4": {
                 "name": "ShortLine Railroad",
-                "tile": "========;| ShLn |;|      |;| Rlrd |;========;",
-                "color": "\u001b[0m\u001b[1m"
+                "tile": "==========;|  ShLn  |;|        |;|  Rlrd  |;==========;",
+                "color": "\u001b[0m\u001b[1m",
+                "type": "ownable"
             },
             "5": {
                 "name": "Chance",
-                "tile": "========;|      |;|Chance|;|      |;========;",
+                "tile": "==========;|        |;| Chance |;|        |;==========;",
                 "color": "\u001b[0m"
             }, 
             "6": {
                 "name": "Park Place",
-                "tile": "========;| Prk. |;|      |;| Plc. |;========;",
+                "tile": "==========;|  Prk.  |;|        |;|  Plc.  |;==========;",
                 "color": "\u001b[34m",
                 "price": 350,
                 "rent": {
@@ -299,17 +446,18 @@
                     "4": 1300,
                     "5": 1500
                 },
-                "homePrice": 100
+                "homePrice": 100,
+                "type": "ownable"
             },
             "7": {
                 "name": "Luxury Tax",
-                "tile": "========;| Tax. |;|      |;| $100 |;========;",
+                "tile": "==========;|  Tax.  |;|        |;|  $100  |;==========;",
                 "color": "\u001b[0m",
                 "price": 100
             },
             "8": {
                 "name": "Boardwalk",
-                "tile": "========;| Brd. |;|      |;| Walk |;========;",
+                "tile": "==========;|  Brd.  |;|        |;|  Walk  |;==========;",
                 "color": "\u001b[34m",
                 "price": 400,
                 "rent": {
@@ -320,7 +468,8 @@
                     "4": 1700,
                     "5": 2000
                 },
-                "homePrice": 100
+                "homePrice": 100,
+                "type": "ownable"
             }
         }
     }

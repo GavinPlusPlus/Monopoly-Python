@@ -8,6 +8,7 @@ import time
 import json
 import sys
 import os
+import zlib
 
 class GameBoard:
 
@@ -29,12 +30,29 @@ class GameBoard:
             sys.exit(-1)
 
     def printRawJson(self):
-        print(self.boardJSON)
+        raw = json.dumps(self.boardJSON)
+        print(raw)
+        print("Raw Data Size: ", sys.getsizeof(raw))
+
+    def printCompressedJson(self):
+        compressed = zlib.compress(json.dumps(self.boardJSON).encode())
+        print(compressed)
+        print("Compressed Data Size: ", sys.getsizeof(compressed))
 
     def printCurrentBoard(self):
 
         stringToPrint = ""
-        centerSpacing = "                                                                        "
+        centerSpacing = "                                                                                          "
+
+        #Print Top
+        for i in range (0, 5):
+            stringToPrint = ""
+            for j in range (0, 11):
+                stringToPrint += str(self.boardJSON["board"]["top"][str(j)]["color"])
+                tileStr = self.boardJSON["board"]["top"][str(j)]["tile"]
+                stringToPrint += tileStr.split(";")[i] + "\u001b[0m"
+            print(stringToPrint)
+            time.sleep(.02)
 
         #Print Sides
         for i in range (0, 9):
@@ -43,14 +61,15 @@ class GameBoard:
                 #Left Side
                 stringToPrint += str(self.boardJSON["board"]["left"][str(8 - i)]["color"])
                 tileStr = self.boardJSON["board"]["left"][str(8 - i)]["tile"]
-                stringToPrint += tileStr.split(";")[j] 
+                stringToPrint += tileStr.split(";")[j] + "\u001b[0m"
                 stringToPrint += centerSpacing
 
                 #Right Side
                 stringToPrint += str(self.boardJSON["board"]["right"][str(i)]["color"])
                 tileStr = self.boardJSON["board"]["right"][str(i)]["tile"]
-                stringToPrint += tileStr.split(";")[j] 
+                stringToPrint += tileStr.split(";")[j] + "\u001b[0m"
                 print(stringToPrint)
+                time.sleep(.02)
 
         #Print bottom
         for i in range (0, 5):
@@ -58,10 +77,14 @@ class GameBoard:
             for j in range (0, 11):
                 stringToPrint += str(self.boardJSON["board"]["bottom"][str(10 - j)]["color"])
                 tileStr = self.boardJSON["board"]["bottom"][str(10 - j)]["tile"]
-                stringToPrint += tileStr.split(";")[i]
+                stringToPrint += tileStr.split(";")[i] + "\u001b[0m"
             print(stringToPrint)
+            time.sleep(.02)
 
 game = GameBoard()
+print()
 game.printRawJson()
+print()
+game.printCompressedJson()
 print()
 game.printCurrentBoard()
