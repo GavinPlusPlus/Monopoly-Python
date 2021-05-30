@@ -7,6 +7,9 @@
 import socket
 import sys
 import time
+import os
+from threading import Thread
+
 
 class Server:
     
@@ -24,6 +27,10 @@ class Server:
         self.hostname = socket.gethostname()
         self.ip = socket.gethostbyname(self.hostname)
 
+        #Socket and Thread Related Variables
+        Thread.__init__(self)
+        self.threadCount = 0
+        self.activeConnections = []
 
     def startTCPServer(self):
 
@@ -35,7 +42,11 @@ class Server:
         except socket.error:
             print(f"[ERROR]: Failed to TCP bind socket to {self.ip}:{self.port}")
             sys.exit(-1)
-            
+
+    def runTCPSearch(self):
+
+        #Run Loop
+        
 
     def startUDPServer(self):
 
@@ -103,6 +114,10 @@ class Client:
 
         #Init Socket Connection
         print(ip)
+
+    def runClientLoop(self, player, properties):
+
+
 
     def startUDPSearch(self):
 

@@ -46,6 +46,7 @@ class Player:
             name = input("Please enter your name (Under 16 Characters): ")
             if len(name) < 16:
                 valid = True
+                print("Your Name is: " + name + "\n")
             else: 
                 print("Entered name is invalid! Please try again!")
         

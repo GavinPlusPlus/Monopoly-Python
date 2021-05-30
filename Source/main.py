@@ -5,17 +5,19 @@
 ################################################################################
 
 from NetAPI import Server, Client
+from Menu import Menu
+from Player import Player
+
+#Variables
+socket = None
+
+#Objects
+menu = Menu()
+localPlayer = Player()
 
 
-testType = input("Would you like to be the server or client? (S - Server, C - Client)")
+#Main Code
+menu.runMainScreen()
+localPlayer.setName()
 
-if testType == "S":
 
-    server = Server(32600)
-    server.startTCPServer()
-    server.startUDPServer()
-elif testType == "C":
-
-    client = Client(32600)
-    serverAddress = client.startUDPSearch()
-    client.connectTCPSock(serverAddress)

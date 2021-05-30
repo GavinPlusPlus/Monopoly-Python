@@ -1,5 +1,5 @@
 ################################################################################
-# GameBoard.py
+# Game.py
 # File to import, create, and build the monopoly board
 # Python : Period 2
 ################################################################################
@@ -11,7 +11,7 @@ import os
 import zlib
 from Property import Property
 
-class GameBoard:
+class Game:
 
     #Variables
     boardJSON = None
@@ -43,16 +43,6 @@ class GameBoard:
             self.propertyList.append(Property(self.boardJSON["board"]["top"][str(i)]))
         for i in range (0, 9):
             self.propertyList.append(Property(self.boardJSON["board"]["right"][str(i)]))
-
-    def printRawJson(self):
-        raw = json.dumps(self.boardJSON)
-        print(raw)
-        print("Raw Data Size: ", sys.getsizeof(raw))
-
-    def printCompressedJson(self):
-        compressed = zlib.compress(json.dumps(self.boardJSON).encode())
-        print(compressed)
-        print("Compressed Data Size: ", sys.getsizeof(compressed))
 
     def printCurrentBoard(self):
 
@@ -96,11 +86,7 @@ class GameBoard:
             print(stringToPrint)
             time.sleep(.02)
 
-game = GameBoard()
+game = Game()
 print()
-# game.printRawJson()
-# print()
-# game.printCompressedJson()
-# print()
-# game.printCurrentBoard()
+
 
