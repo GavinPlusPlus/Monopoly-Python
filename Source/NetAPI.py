@@ -115,7 +115,7 @@ class Client:
         #Init Socket Connection
         print(ip)
 
-    def runClientLoop(self, player, properties):
+    def runClientLoop(self, data):
 
 
 
