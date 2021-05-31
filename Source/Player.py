@@ -52,8 +52,21 @@ class Player:
         
         self.name = name
     
-    def setSymbol(self, symbol):
+    def setSymbol(self, symbols):
+        #Prompts user for a symbol
+        symbol = ""
+        valid = False
+
+        while not valid:
+            symbol = input(f"Please choose a symbol from the following options ({symbols}): ")
+            if symbol in symbols:
+                symbols.remove(symbol)
+                valid = True
+            else:
+                print("Character invalid or already used! Please try again")
+        
         self.symbol = symbol
+        return symbols
 
     def changeMoney(self, amount):
         self.money = self.money + amount

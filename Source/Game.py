@@ -8,7 +8,6 @@ import time
 import json
 import sys
 import os
-import zlib
 from Property import Property
 
 class Game:
