@@ -130,7 +130,7 @@ while not winner:
             validProps = 0
             for j, props in enumerate(board):
                 if props.getPlayer() == i:
-                    print(f"{i + 1}. {props.getName()} for ${props.getHouseCost()}")
+                    print(f"{j + 1}. {props.getName()} for ${props.getHouseCost()}")
                     validProps += 1
                     
             board = game.getPropertyList()
@@ -169,6 +169,7 @@ while not winner:
                 result = dice.roll()
                 devFlag = False
             print(f"You Rolled a {result}!")
+            time.sleep(2)
             players[i].advanceBoardPosition(result)
 
             #Update Board
